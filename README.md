@@ -99,27 +99,6 @@ streamlit run app/dashboard.py
 docker-compose up --build
 ```
 
-## 🧪 Тестування
-
-```bash
-pytest
-```
-
-## 📊 Результати
-
-| Метрика   | Значення |
-|-----------|----------|
-| Precision | ...      |
-| Recall    | ...      |
-| F1-score  | ...      |
-| ROC-AUC   | ...      |
-
-## 🖼️ Скриншоти
-
-```markdown
-![Dashboard](docs/dashboard.png)
-```
-
 ## 👤 Автор
 
 **Діцул Микола **  
