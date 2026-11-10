@@ -1,0 +1,41 @@
+services:
+  # Одноразове навчання: docker compose --profile train run --rm trainer
+  trainer:
+    build: .
+    profiles: ["train"]
+    command: sh -c "[ -f data/raw_transactions.csv ] || python -m src.generate_data; python -m src.train"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+
+  antifraud-api:
+    build: .
+    container_name: antifraud_api
+    ports:
+      - "8000:8000"
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    environment:
+      MODELS_DIR: /app/models
+    volumes:
+      - ./models:/app/models:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request as u; u.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  antifraud-dashboard:
+    build: .
+    container_name: antifraud_dashboard
+    ports:
+      - "8501:8501"
+    command: streamlit run app/dashboard.py --server.port 8501 --server.address 0.0.0.0
+    environment:
+      API_URL: http://antifraud-api:8000
+      DATA_PATH: /app/data/raw_transactions.csv
+    volumes:
+      - ./data:/app/data:ro
+    depends_on:
+      antifraud-api:
+        condition: service_healthy

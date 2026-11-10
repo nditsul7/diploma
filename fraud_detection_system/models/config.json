@@ -1,0 +1,56 @@
+{
+  "trained_at": "2026-11-09T11:53:45+00:00",
+  "feature_columns": [
+    "Time",
+    "Amount",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "hour_of_day",
+    "is_night",
+    "log_amount",
+    "scaled_amount",
+    "anomaly_score"
+  ],
+  "thresholds": {
+    "review": 0.11,
+    "block": 0.62,
+    "anomaly_review": -0.5347518095412658
+  },
+  "costs": {
+    "false_negative": 100.0,
+    "false_positive": 5.0
+  },
+  "xgb_best_iteration": 195,
+  "smote": true,
+  "model_thresholds": {
+    "random_forest": 0.39,
+    "xgboost_without_anomaly_score": 0.68,
+    "hybrid": 0.64
+  }
+}
