@@ -99,8 +99,8 @@ streamlit run app/dashboard.py
 docker-compose up --build
 ```
 
-## 👤 Автор
+ ## 👤 Автор
 
-Діцул Микола 
-Група ФІТ 2-8м, 2026
-,ДТЕУ
+**Діцул Микола** · група ФІТ 2-8м · ДТЕУ · 2026
+
+[![GitHub](https://img.shields.io/badge/GitHub-nditsul7-181717?logo=github)](https://github.com/nditsul7)
